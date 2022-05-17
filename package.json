@@ -1,0 +1,44 @@
+{
+  "name": "api-based-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
+    "watch": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --watchAll",
+    "webhint": "npx hint .",
+    "stylelint": "npx stylelint **/*.{css,scss} --fix",
+    "eslint": "npx eslint . --fix ",
+    "build": "webpack",
+    "start": "webpack serve --open",
+    "deploy": "gh-pages -d dist"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.svg$": "jest-svg-transformer"
+    },
+    "rootDir": "./tests",
+    "testEnvironment": "jsdom",
+    "verbose": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idungstanley/API-based-webAPP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idungstanley/API-based-webAPP/issues"
+  },
+  "homepage": "https://github.com/idungstanley/API-based-webAPP#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
