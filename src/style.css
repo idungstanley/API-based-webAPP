@@ -15,5 +15,6 @@ footer {
   height: 40px;
   position: static;
   bottom: 0;
-  background-color: azure;
+  border-top: 1px solid black;
+  background-color: white;
 }
