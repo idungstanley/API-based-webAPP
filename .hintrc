@@ -14,5 +14,12 @@
     "meta-charset-utf-8",
     "meta-viewport",
     "no-inline-styles:error"
-  ]
+  ],
+  "ignoredUrls": [{
+    "domain": ".*dist/.*",
+    "hints": ["*"]
+}, {
+    "domain": "www.domain2.net",
+    "hints": ["disallowed-headers"]
+}]
 }
