@@ -13,9 +13,12 @@ header {
 footer {
   width: 100%;
   height: 40px;
-  position: static;
+  position: absolute;
   bottom: 0;
-  background-color: azure;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:whitesmoke;
 }
 
 .items-container {
