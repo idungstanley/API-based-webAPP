@@ -1,5 +1,6 @@
 import './style.css';
 import displayCard from './modules/displayCard.js';
+import initId from './modules/init.js';
 
 // Display all items
 const displayItems = async (artistId = '271256') => {
@@ -12,5 +13,5 @@ const displayItems = async (artistId = '271256') => {
       element.collectionCensoredName, element.artistName);
   }
 };
-
+initId();
 displayItems();

@@ -9,7 +9,7 @@ const displayCard = (container, albumImg = 'unknown', albumName = 'no-name') => 
   const descriptionText = document.createElement('p');
   const commentsButton = document.createElement('button');
   const reservationsButton = document.createElement('button');
-
+  
   descriptionText.textContent = '5 likes';
   likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/126/126473.png');
   likeIcon.classList.add('icon-size');
