@@ -1,6 +1,6 @@
 export default class Comment {
   static createCommentPopUp = (data) => {
-    let newArticle = document.createElement('article')
+    const newArticle = document.createElement('article');
     newArticle.innerHTML = `<div class= "flex"> 
   <img src= ${data.url} alt="Image"/> 
   <span class='material-symbols-outlined'>close</span>
@@ -11,6 +11,6 @@ export default class Comment {
     <p>Length: 10000</p>
     <p>Weight: 10000</p>
     <p>Power: 10000</p>
-  </div>`
+  </div>`;
   }
 }
