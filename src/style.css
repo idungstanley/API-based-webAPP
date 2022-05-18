@@ -1,21 +1,21 @@
 * {
- box-sizing: border-box;
- padding: 0;
- margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 header {
- display: flex;
- width: 100%;
- justify-content: space-around;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 footer {
- width: 100%;
- height: 40px;
- position: static;
- bottom: 0;
- background-color: azure;
+  width: 100%;
+  height: 40px;
+  position: static;
+  bottom: 0;
+  background-color: azure;
 }
 
 .items-container {
@@ -28,8 +28,8 @@ footer {
 }
 
 img {
- width: 70%;
- align-self: center;
+  width: 70%;
+  align-self: center;
 }
 
 #section {

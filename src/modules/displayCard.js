@@ -1,5 +1,5 @@
 // Display single card/item
-const displayCard = (container, albumImg='unknown', albumName="no-name", artistName="NONE") => {
+const displayCard = (container, albumImg = 'unknown', albumName = 'no-name') => {
   const div = document.createElement('div');
   const img = document.createElement('img');
   const h3 = document.createElement('h3');
@@ -10,7 +10,7 @@ const displayCard = (container, albumImg='unknown', albumName="no-name", artistN
   const commentsButton = document.createElement('button');
   const reservationsButton = document.createElement('button');
 
-  descriptionText.textContent = "5 likes"; 
+  descriptionText.textContent = '5 likes';
   likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/126/126473.png');
   likeIcon.classList.add('icon-size');
   likesContainer.classList.add('description-container');
@@ -22,7 +22,6 @@ const displayCard = (container, albumImg='unknown', albumName="no-name", artistN
   reservationsButton.textContent = 'Reservation';
   div.classList.add('items-container');
   titleContainer.classList.add('title-like');
-
 
   likesContainer.append(likeIcon, descriptionText);
   titleContainer.append(h3, likesContainer);
