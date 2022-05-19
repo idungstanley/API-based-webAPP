@@ -1,6 +1,7 @@
 import './style.css';
 import displayCard from './modules/displayCard.js';
 import Comment from './modules/comment.js';
+import initId from './modules/init.js';
 
 // Display all items
 const displayItems = async (artistId = '271256') => {
@@ -16,6 +17,7 @@ const displayItems = async (artistId = '271256') => {
       container,
       element.artworkUrl100,
       element.collectionCensoredName,
+      element.artistName,
       element.collectionId,
     );
   }
@@ -26,5 +28,6 @@ const displayItems = async (artistId = '271256') => {
     btn.addEventListener('click', (event) => Comment.displayCommentPopUp(event, element));
   });
 };
+initId();
 displayItems();
 document.querySelector('.comment-popup').addEventListener('click', (event) => Comment.closePopUp(event));
