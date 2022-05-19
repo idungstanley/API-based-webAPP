@@ -1,6 +1,7 @@
 import './style.css';
 import displayCard from './modules/displayCard.js';
 import initId from './modules/init.js';
+import updateAllLikes from './modules/likesData.js';
 
 // Display all items
 const displayItems = async (artistId = '271256') => {
@@ -14,3 +15,4 @@ const displayItems = async (artistId = '271256') => {
 };
 initId();
 displayItems();
+updateAllLikes();
