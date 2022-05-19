@@ -22,7 +22,7 @@ export default class Comment {
               placeholder="Add your Name"
             />
             <br />
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea name="" id="" cols="30" rows="10" placeholder= "insights"></textarea>
             <button type="submit" class="btn">Comment</button>
           </form>
   `;
