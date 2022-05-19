@@ -12,6 +12,6 @@ const initId = async () => {
     const id = await response.text();
     localStorage.setItem('appId', JSON.stringify(id));
   }
-}
+};
 
 export default initId;
