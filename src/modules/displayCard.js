@@ -16,9 +16,9 @@ const displayCard = (container, albumImg = 'unknown', albumName = 'no-name', ind
   likesContainer.classList.add('description-container');
   h3.innerHTML = albumName;
   img.setAttribute('src', albumImg);
-  commentsButton.classList.add("comment")
+  commentsButton.classList.add('comment');
   commentsButton.setAttribute('type', 'button');
-  commentsButton.setAttribute("id", index);
+  commentsButton.setAttribute('id', index);
   reservationsButton.setAttribute('type', 'button');
   commentsButton.textContent = 'Comments';
   reservationsButton.textContent = 'Reservation';
