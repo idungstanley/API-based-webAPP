@@ -1,10 +1,12 @@
-// Manage all interactions when like icon is clicked
+import updateLikeCounter from "./updateLikeCounter.js";
+
+// Add like to item using Involvement API
 async function setLike() {
   const likeIcon = this.firstChild;
-  const likesNumber = likeIcon.dataset.likes;
+  let likesNumber = likeIcon.dataset.likes;
   const cardId = likeIcon.dataset.itemid;
   const appId = JSON.parse(localStorage.getItem('appId'));
-  if (likesNumber == 0) { // If clicked first time
+
     const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`,{
     method:'POST',
     body:JSON.stringify({
@@ -15,7 +17,8 @@ async function setLike() {
       },
     });
     console.log(response);
-  }
+  likeIcon.setAttribute('data-likes', likesNumber = Number(likesNumber) + 1);
+  updateLikeCounter(cardId, likesNumber);
 }
 
 export default setLike;

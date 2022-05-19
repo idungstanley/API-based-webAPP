@@ -1,8 +1,9 @@
 import setLike from "./likeButton.js";
 
 // Display single card/item
-const displayCard = (container, albumImg = 'unknown', albumName = 'no-name') => {
-  const likesCounter = 0;
+const displayCard = (container, albumImg = 'unknown', albumName = 'no-name' , artistName="Unknow" , likes = 0) => {
+  artistName ="drake";
+  const likesCounter = likes;
   const div = document.createElement('div');
   const img = document.createElement('img');
   const i = document.createElement('i');
@@ -17,6 +18,7 @@ const displayCard = (container, albumImg = 'unknown', albumName = 'no-name') => 
 
   likeIcon.setAttribute('data-likes', likesCounter);
   likeIcon.setAttribute('data-itemId', itemId);
+  descriptionText.setAttribute('data-cardid', itemId);
   descriptionText.textContent = likeIcon.dataset.likes +' likes';
   likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/126/126473.png');
   likeIcon.classList.add('icon-size');
