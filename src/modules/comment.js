@@ -23,7 +23,7 @@ export default class Comment {
             />
             <br />
             <textarea name="" id="" cols="30" rows="10"></textarea>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn">Comment</button>
           </form>
   `;
     popUp.appendChild(newArticle);
