@@ -1,7 +1,7 @@
-const popUp = document.querySelector('.comment-popup')
+const popUp = document.querySelector('.comment-popup');
 export default class Comment {
   static createCommentPopUp = (data) => {
-    const newArticle = document.createElement('article')
+    const newArticle = document.createElement('article');
     newArticle.innerHTML = `<div class= "flex"> 
   <img src= ${data.artworkUrl100} alt="Image"/> 
   <span class='material-symbols-outlined'>close</span>
@@ -25,21 +25,21 @@ export default class Comment {
             <textarea name="" id="" cols="30" rows="10"></textarea>
             <button type="submit" class="btn">Submit</button>
           </form>
-  `
-    popUp.appendChild(newArticle)
+  `;
+    popUp.appendChild(newArticle);
   }
 
   static displayCommentPopUp = (event, element) => {
     if (event.target.id === element.collectionId.toString()) {
-      Comment.createCommentPopUp(element)
+      Comment.createCommentPopUp(element);
     }
   }
 
   static closePopUp = (event) => {
-    const child = event.target
-    const parentContainer = child.parentElement.parentElement.parentElement
+    const child = event.target;
+    const parentContainer = child.parentElement.parentElement.parentElement;
     if (child.classList.contains('material-symbols-outlined')) {
-      parentContainer.removeChild(child.parentElement.parentElement)
+      parentContainer.removeChild(child.parentElement.parentElement);
     }
   }
 }
