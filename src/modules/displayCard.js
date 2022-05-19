@@ -1,7 +1,11 @@
+import setLike from './likeButton.js';
+
 // Display single card/item
-const displayCard = (container, albumImg = 'unknown', albumName = 'no-name') => {
+const displayCard = (container, albumImg = 'unknown', albumName = 'no-name', likes = 0) => {
+  const likesCounter = likes;
   const div = document.createElement('div');
   const img = document.createElement('img');
+  const i = document.createElement('i');
   const h3 = document.createElement('h3');
   const titleContainer = document.createElement('div');
   const likeIcon = document.createElement('img');
@@ -9,8 +13,12 @@ const displayCard = (container, albumImg = 'unknown', albumName = 'no-name') => 
   const descriptionText = document.createElement('p');
   const commentsButton = document.createElement('button');
   const reservationsButton = document.createElement('button');
+  const itemId = document.querySelectorAll('#section > div').length;
 
-  descriptionText.textContent = '5 likes';
+  likeIcon.setAttribute('data-likes', likesCounter);
+  likeIcon.setAttribute('data-itemId', itemId);
+  descriptionText.setAttribute('data-cardid', itemId);
+  descriptionText.textContent = `${likeIcon.dataset.likes} likes`;
   likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/126/126473.png');
   likeIcon.classList.add('icon-size');
   likesContainer.classList.add('description-container');
@@ -22,8 +30,10 @@ const displayCard = (container, albumImg = 'unknown', albumName = 'no-name') => 
   reservationsButton.textContent = 'Reservation';
   div.classList.add('items-container');
   titleContainer.classList.add('title-like');
+  i.addEventListener('click', setLike);
 
-  likesContainer.append(likeIcon, descriptionText);
+  likesContainer.append(i, descriptionText);
+  i.append(likeIcon);
   titleContainer.append(h3, likesContainer);
   div.append(img, titleContainer, commentsButton, reservationsButton);
   container.append(div);
