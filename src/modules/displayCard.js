@@ -1,7 +1,7 @@
 import setLike from './likeButton.js';
 
 // Display single card/item
-const displayCard = (container, albumImg = 'unknown', albumName = 'no-name', likes = 0) => {
+const displayCard = (container, albumImg = 'unknown', albumName = 'no-name', likes = 0, index) => {
   const likesCounter = likes;
   const div = document.createElement('div');
   const img = document.createElement('img');
@@ -24,7 +24,9 @@ const displayCard = (container, albumImg = 'unknown', albumName = 'no-name', lik
   likesContainer.classList.add('description-container');
   h3.innerHTML = albumName;
   img.setAttribute('src', albumImg);
+  commentsButton.classList.add('comment');
   commentsButton.setAttribute('type', 'button');
+  commentsButton.setAttribute('id', index);
   reservationsButton.setAttribute('type', 'button');
   commentsButton.textContent = 'Comments';
   reservationsButton.textContent = 'Reservation';
