@@ -2,7 +2,7 @@ import './style.css';
 import displayCard from './modules/displayCard.js';
 import Comment from './modules/comment.js';
 import initId from './modules/init.js';
-import cardCounter from './modules/cardCounter';
+import cardCounter from './modules/cardCounter.js';
 
 // Display all items
 const displayItems = async (artistId = '271256') => {
