@@ -1,6 +1,7 @@
 const updateLikeCounter = (cardId, likes) => {
-  console.log(cardId);
   const pElement = document.querySelector(`[data-cardid="${cardId}"]`);
+  const likeIcon = document.querySelector(`[data-itemid="${cardId}"]`);
+  likeIcon.setAttribute('data-likes', likes);
   pElement.textContent = `${likes} likes`;
 };
 
