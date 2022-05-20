@@ -8,12 +8,13 @@ const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section');
   const response = await fetch(
     `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=6`,
-  {
-    method: 'POST',
+    {
+      method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-      }
-  });
+      },
+    },
+  );
   const obj = await response.json();
   for (let index = 1; index < obj.results.length; index += 1) {
     const element = obj.results[index];
