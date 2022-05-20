@@ -13,7 +13,8 @@ export default class Comment {
     <p>Price: $${data.collectionPrice}</p>
     <p>Genre Type: ${data.primaryGenreName}</p>
   </div>
-  <div class="store-comments"></div>
+  <h4 class="count"></h4>
+  <ul class="store-comments"></ul>
   <div>
   <h4>Add a Comment</h4>
   <form id="form">
@@ -46,25 +47,44 @@ export default class Comment {
     }
   }
   static postAComment = async (url, id, userName, comment) => {
-    await fetch(url,{
+    await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
         item_id: id,
-        userName: userName,
+        username: userName,
         comment: comment,
       }),
     })
   }
 
   static getComment = async (url) => {
-    let fetchData = await fetch(url);
+    let fetchData = await fetch(url)
     return fetchData.json()
   }
   static getStorage = () => {
     return JSON.parse(localStorage.getItem('appId'))
   }
+  static clearField = () => {
+    let name = document.querySelector('#input')
+    let text = document.querySelector('#textarea')
+    name.value = ''
+    text.value = ''
+  }
 
+  static showComment = (comments) => {
+    comments.forEach((comment) => {
+      const commentContainer = document.querySelector('.store-comments')
+      const container = document.createElement("li")
+      container.innerHTML =`${comment.creation_date} ${comment.username}: ${comment.comment}`
+      commentContainer.appendChild(container)
+    })
+  }
+
+  static countComment = (comments) => {
+    const count = document.querySelector(".count");
+    count.innerHTML = `Comment (${comments.length})`
+  }
 }

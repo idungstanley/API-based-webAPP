@@ -2,7 +2,6 @@ import './style.css'
 import displayCard from './modules/displayCard.js'
 import Comment from './modules/comment.js'
 import initId from './modules/init.js'
-import Form from './modules/form.js'
 // Display all items
 const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section')
@@ -49,14 +48,15 @@ const displayItems = async (artistId = '271256') => {
           nameValue,
           textValue
         )
-        let san = await Comment.getComment(getComment)
-        console.log(san)
+        Comment.clearField();
+        let san = await Comment.getComment(getComment);
+        Comment.countComment(san);
+        Comment.showComment(san);
       })
     })
   })
 }
 displayItems()
-// Form.sendComment()
 initId()
 
 document.querySelector('.comment-popup').addEventListener('click', (event) => {
