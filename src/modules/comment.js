@@ -46,24 +46,25 @@ export default class Comment {
     }
   }
   static postAComment = async (url, id, userName, comment) => {
-    await fetch(url, {
+    await fetch(url,{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        item_id: `${id}`,
-        userName: `${userName}`,
-        comment: `${comment}`,
+        item_id: id,
+        userName: userName,
+        comment: comment,
       }),
     })
   }
 
   static getComment = async (url) => {
-    let fetch = await fetch(url)
-    return fetch.json()
+    let fetchData = await fetch(url);
+    return fetchData.json()
   }
   static getStorage = () => {
     return JSON.parse(localStorage.getItem('appId'))
   }
+
 }
