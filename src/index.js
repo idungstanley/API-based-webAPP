@@ -3,6 +3,7 @@ import displayCard from './modules/displayCard.js';
 import Comment from './modules/comment.js';
 import initId from './modules/init.js';
 import cardCounter from './modules/cardCounter.js';
+import updateAllLikes from './modules/likesData.js';
 
 // Display all items
 const displayItems = async (artistId = '271256') => {
@@ -31,5 +32,5 @@ const displayItems = async (artistId = '271256') => {
 };
 initId();
 displayItems();
-
+updateAllLikes();
 document.querySelector('.comment-popup').addEventListener('click', (event) => Comment.closePopUp(event));
