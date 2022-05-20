@@ -27,6 +27,7 @@ const displayItems = async (artistId = '271256') => {
       element.artistName,
       element.collectionId,
     );
+    updateAllLikes();
   }
 
   const btns = document.querySelectorAll('.comment');
@@ -38,5 +39,6 @@ const displayItems = async (artistId = '271256') => {
 };
 initId();
 displayItems();
-updateAllLikes();
+
+
 document.querySelector('.comment-popup').addEventListener('click', (event) => Comment.closePopUp(event));
