@@ -2,6 +2,7 @@ import './style.css';
 import displayCard from './modules/displayCard.js';
 import Comment from './modules/comment.js';
 import initId from './modules/init.js';
+import cardCounter from './modules/cardCounter.js';
 import updateAllLikes from './modules/likesData.js';
 
 // Display all items
@@ -11,7 +12,6 @@ const displayItems = async (artistId = '271256') => {
     `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=6`,
   );
   const obj = await response.json();
-  console.log(obj.results);
   for (let index = 1; index < obj.results.length; index += 1) {
     const element = obj.results[index];
     displayCard(
@@ -28,6 +28,7 @@ const displayItems = async (artistId = '271256') => {
     const element = obj.results[index + 1];
     btn.addEventListener('click', (event) => Comment.displayCommentPopUp(event, element));
   });
+  cardCounter();
 };
 initId();
 displayItems();
