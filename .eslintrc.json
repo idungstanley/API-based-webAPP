@@ -21,6 +21,8 @@
   "ignorePatterns": [
     "dist/",
     "build/",
-    "cors-anywhere/"
+    "cors-anywhere/",
+    "docs"
+
   ]
 }
