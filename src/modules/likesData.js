@@ -3,7 +3,7 @@ import updateLikeCounter from './updateLikeCounter.js';
 const updateAllLikes = async () => {
   const appId = JSON.parse(localStorage.getItem('appId'));
   const response = await fetch(
-    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/VonFwyCfU4bUnxbvPNPN/likes/`,
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes/`,
     {
       method: 'GET',
       headers: {
@@ -13,7 +13,7 @@ const updateAllLikes = async () => {
   )
   const obj = await response.json();
   let list = await obj;
-  list = list.slice(1);
+  list = list.slice(0);
   list.forEach((element) => {
     updateLikeCounter(element.item_id, element.likes);
   });
