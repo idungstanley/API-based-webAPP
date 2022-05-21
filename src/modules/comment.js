@@ -2,32 +2,35 @@ const popUp = document.querySelector('.comment-popup')
 export default class Comment {
   static createCommentPopUp = (data) => {
     const newArticle = document.createElement('article')
-    newArticle.innerHTML = `<div class= "flex"> 
-  <img src= ${data.artworkUrl100} alt="Image"/> 
-  <span class='material-symbols-outlined'>close</span>
+    newArticle.innerHTML = `<div class= "wrapper">
+    <div class= "flex"> 
+  <img class="pop-image" src= ${data.artworkUrl100} alt="Image"/> 
+  <span class='material-symbols-outlined white'>close</span>
   </div>
-  <h2>Collection Name: ${data.collectionName}</h2>
+  <h2 class="white">Collection Name: ${data.collectionName}</h2>
   <div class= "pop-details">
-    <a href="${data.collectionViewUrl}" target="_blank">Click Here To Listen</a>
-    <p>Release Date: ${data.releaseDate}</p>
-    <p>Price: $${data.collectionPrice}</p>
-    <p>Genre Type: ${data.primaryGenreName}</p>
+    <a class="white border" href="${data.collectionViewUrl}" target="_blank">Click Here To Listen</a>
+    <p class="white border">Release Date: ${data.releaseDate}</p>
+    <p class="white border">Price: $${data.collectionPrice}</p>
+    <p class="white border">Genre Type: ${data.primaryGenreName}</p>
   </div>
   <h4 class="count"></h4>
   <ul class="store-comments"></ul>
   <div>
-  <h4>Add a Comment</h4>
+  <h4 class= "white">Add a Comment</h4>
   <form id="form">
   <input
   type="text"
   name="name"
+  maxlength="20"
               id="input"
               placeholder="Add your Name"
             />
             <br />
-            <textarea name="" id="textarea" cols="30" rows="10" placeholder= "insights"></textarea>
+            <textarea name="" id="textarea" cols="30" rows="10" maxlength="100" placeholder= "insights"></textarea>
             <button type="submit" class="btn">Comment</button>
             </form>
+            </div>
             </div>
   `
     popUp.appendChild(newArticle)
@@ -41,9 +44,12 @@ export default class Comment {
 
   static closePopUp = (event) => {
     const child = event.target
-    const parentContainer = child.parentElement.parentElement.parentElement
+    const parentContainer =
+      child.parentElement.parentElement.parentElement.parentElement
     if (child.classList.contains('material-symbols-outlined')) {
-      parentContainer.removeChild(child.parentElement.parentElement)
+      parentContainer.removeChild(
+        child.parentElement.parentElement.parentElement
+      )
     }
   }
   static postAComment = async (url, id, userName, comment) => {

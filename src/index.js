@@ -25,8 +25,9 @@ const displayItems = async (artistId = '271256') => {
       element.artworkUrl100,
       element.collectionCensoredName,
       element.artistName,
-      element.collectionId
-    )
+      element.collectionId,
+    );
+    updateAllLikes();
   }
   const btns = document.querySelectorAll('.comment')
   Array.from(btns).forEach((btn, index) => {
@@ -59,12 +60,9 @@ const displayItems = async (artistId = '271256') => {
     })
   })
   cardCounter();
-}
-displayItems()
-initId()
-updateAllLikes();
+};
+initId();
+displayItems();
 
-document.querySelector('.comment-popup').addEventListener('click', (event) => {
-  Comment.closePopUp(event)
-})
 
+document.querySelector('.comment-popup').addEventListener('click', (event) => Comment.closePopUp(event));
