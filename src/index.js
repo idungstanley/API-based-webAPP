@@ -4,12 +4,13 @@ import Comment from './modules/comment.js';
 import initId from './modules/init.js';
 import cardCounter from './modules/cardCounter.js';
 import updateAllLikes from './modules/likesData.js';
+import '../Assets/images/icons8.png';
 
 // Display all items
 const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section');
   const response = await fetch(
-    `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=6`,
+    `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=12`,
     {
       method: 'POST',
       headers: {
@@ -27,18 +28,16 @@ const displayItems = async (artistId = '271256') => {
       element.artistName,
       element.collectionId,
     );
-    updateAllLikes();
   }
-
   const btns = document.querySelectorAll('.comment');
   Array.from(btns).forEach((btn, index) => {
     const element = obj.results[index + 1];
     btn.addEventListener('click', (event) => Comment.displayCommentPopUp(event, element));
   });
   cardCounter();
+  updateAllLikes();
 };
 initId();
 displayItems();
-
 
 document.querySelector('.comment-popup').addEventListener('click', (event) => Comment.closePopUp(event));
