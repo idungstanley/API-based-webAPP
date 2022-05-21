@@ -27,7 +27,6 @@ const displayItems = async (artistId = '271256') => {
       element.artistName,
       element.collectionId,
     );
-    updateAllLikes();
   }
   const btns = document.querySelectorAll('.comment');
   Array.from(btns).forEach((btn, index) => {
