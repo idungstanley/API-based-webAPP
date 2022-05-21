@@ -3,7 +3,7 @@
 
 const initId = async () => {
   if (localStorage.getItem('appId') === null) {
-    const id = "VonFwyCfU4bUnxbvPNPN";
+    const id = 'VonFwyCfU4bUnxbvPNPN';
     localStorage.setItem('appId', JSON.stringify(id));
   }
 };

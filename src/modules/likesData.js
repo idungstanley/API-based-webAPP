@@ -9,8 +9,8 @@ const updateAllLikes = async () => {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
-    }
-  )
+    },
+  );
   const obj = await response.json();
   let list = await obj;
   list = list.slice(0);
