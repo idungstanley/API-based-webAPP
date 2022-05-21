@@ -54,8 +54,8 @@ const displayItems = async (artistId = '271256') => {
         Comment.clearField();
         let san = await Comment.getComment(getComment);
         Comment.countComment(san);
-        Comment.showComment(san);
       })
+      Comment.showComment(san);
     })
   })
   cardCounter();
