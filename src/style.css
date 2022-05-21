@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Hacim-medium";
+  src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Hacim-bold";
+  src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Round.ttf);
+}
+
+@font-face {
+  font-family: "Hacim-light";
+  src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Light.ttf);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -73,4 +88,9 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.title-like > h3 {
+  font-family: Hacim-light, Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
