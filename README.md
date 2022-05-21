@@ -2,7 +2,7 @@
 
 # API-based-webAPP  <img src="https://img.icons8.com/external-filled-outline-wichaiwi/344/external-description-e-commerce-website-filled-outline-wichaiwi.png" alt="Bootstrap Icon" style="width: 50px; height: 50px">
 
-> Capstone description...
+> The JavaScript capstone project is about building a personalized web application with the help of an external API. we are using two different APIs to have a complete working web app. We are using one API to retrieve all data for the artist's track, albums, and title, and another API to store all user interactions.
 
 ## App screenshot <img src="https://img.icons8.com/bubbles/344/screenshot.png" alt="Bootstrap Icon" style="width: 50px; height: 50px">
 
