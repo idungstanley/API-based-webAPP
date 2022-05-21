@@ -106,10 +106,8 @@ export default class Comment {
     container.innerHTML = `${newDate} ${nameValue}: ${textValue}`;
     commentContainer.appendChild(container);
   }
-  
-  static count = (data) => {
-    return data.length;
-  };
+
+  static count = (data) => data.length;
 
   static countComment = (comments) => {
     const count = document.querySelector('.count');
