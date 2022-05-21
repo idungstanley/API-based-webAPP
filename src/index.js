@@ -34,11 +34,11 @@ const displayItems = async (artistId = '271256') => {
     btn.addEventListener('click', async (event) => {
       Comment.displayCommentPopUp(event, element);
       const form = document.querySelector('#form');
-      const appId = Comment.getStorage();
-      const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
-      const getComment = await `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
-        index + 1
-      }`;
+      const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/VonFwyCfU4bUnxbvPNPN/comments/`
+      const getComment =
+        await `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/VonFwyCfU4bUnxbvPNPN/comments?item_id=${
+          index + 1
+        }`
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const name = document.querySelector('#input');
