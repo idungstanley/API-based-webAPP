@@ -8,6 +8,11 @@
   src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Round.ttf);
 }
 
+@font-face {
+  font-family: "Hacim-light";
+  src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Light.ttf);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -102,11 +107,6 @@ article {
   overflow-y: scroll;
   background-color: rgba(255, 255, 255, 0.932);
   background-blend-mode: soft-light;
-}
-
-.pop-image {
-  width:20%;
-  border-radius: 50%;
 }
 
 .items-container {
@@ -282,4 +282,9 @@ header p {
 
 .clickable {
   cursor: pointer;
+}
+
+.title-like > h3 {
+  font-family: Hacim-light, Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
