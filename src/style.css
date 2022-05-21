@@ -1,17 +1,160 @@
+@font-face {
+  font-family: 'Hacim-medium';
+  src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Hacim-bold';
+  src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Round.ttf);
+}
+
+@font-face {
+  font-family: 'Hacim-light';
+  src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Light.ttf);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family:
+    'Hacim-medium',
+    'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
+}
+
+body {
+  background-image: url(../Assets/images/pexels-stephan-seeber-1261728.jpg);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin: 16px auto;
+  padding: 16px;
+  border-bottom: 3px solid #303638;
 }
 
 .flex {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.white {
+  color: white;
+}
+
+.material-symbols-outlined {
+  width: max-content;
+  padding: 4px;
+  height: max-content;
+  border: 1px solid white;
+  background-color: black;
+}
+
+.material-symbols-outlined:hover {
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+.border {
+  margin-bottom: 4px;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 2px solid white;
+  width: max-content;
+  background-color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.pop-image {
+  width: 20%;
+  border-radius: 50%;
+}
+
+.count {
+  padding: 7px;
+}
+
+.link:hover {
+  color: #ff8a53;
+  border-color: #ff8a53;
+  background-color: white;
+}
+
+.comment-header {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#input {
+  width: 50%;
+  height: 30px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #ff8a53;
+}
+
+#input:focus {
+  outline: none;
+  padding: 5px;
+}
+
+#textarea {
+  width: 50%;
+  height: 100px;
+  padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #ff8a53;
+}
+
+#textarea:focus {
+  outline: none;
+  padding: 5px;
+}
+
+fieldset {
+  padding: 5px;
+}
+
+.pop-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.wrapper {
+  width: 100%;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  background-image: url(../Assets/images/pexels-sebastiaan-stam-1097456.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 article {
@@ -28,22 +171,19 @@ article {
   background-blend-mode: soft-light;
 }
 
-footer {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: whitesmoke;
-}
-
 .items-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 27%;
-  margin: 20px;
+  width: 26%;
   gap: 15px;
+
+  /* Card style */
+  margin: 10px;
+  background-color: #afbbc159;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
 img {
@@ -54,7 +194,6 @@ img {
 
 #section {
   display: flex;
-  margin: 50px;
   justify-content: space-around;
   flex-wrap: wrap;
 }
@@ -73,4 +212,153 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.items-container > img {
+  /* Card style */
+  width: 100%;
+  object-fit: cover;
+}
+
+button {
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  width: 50%;
+  height: 10%;
+  line-height: 64px;
+  transition: all 0.3s;
+  transform: scale(1, 1);
+  align-self: center;
+  border-radius: 10px;
+  color: #ff8a53;
+  background: #07070700;
+  border: 1px solid #fccab3;
+  font-weight: normal;
+  margin: 6px 0;
+  margin-right: 12px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #303638;
+  border-radius: 3px;
+}
+
+footer {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  color: #f8d2c1;
+  font-size: 20px;
+  font-family:
+    hacim-medium,
+    'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
+}
+
+header p {
+  color: #323838;
+  font-family:
+    Hacim-bold,
+    'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
+  font-size: 30px;
+}
+
+.flexbox {
+  background: linear-gradient(155deg, #55c7ed00, #2bb3e000, #f8d2c100);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  margin: 20px;
+}
+
+.search > h3 {
+  font-weight: normal;
+}
+
+.search > div {
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0 1px #0092c200);
+}
+
+.search > div::after {
+  content: '';
+  background: #2a2c2a;
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  top: 21px;
+  right: -5px;
+  transform: rotate(135deg);
+}
+
+.search > div > input {
+  color: #2a2c2a;
+  font-size: 16px;
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  border: solid 3px #2a2c2a;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+  cursor: pointer;
+}
+
+.search > div > input::placeholder {
+  color: #2a2c2a;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search > div > input:focus::placeholder {
+  opacity: 1;
+}
+
+.search > div > input:focus,
+.search > div > input:not(:placeholder-shown) {
+  width: 250px;
+}
+
+.art {
+  margin-right: 5px;
+}
+
+.dra {
+  margin-right: 30px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.title-like > h3 {
+  font-family: Hacim-light, Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }

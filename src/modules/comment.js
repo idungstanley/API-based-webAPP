@@ -2,32 +2,47 @@ const popUp = document.querySelector('.comment-popup');
 export default class Comment {
   static createCommentPopUp = (data) => {
     const newArticle = document.createElement('article');
+<<<<<<< HEAD
     newArticle.innerHTML = `<div class= "flex"> 
   <img src= ${data.artworkUrl100} alt="Image"/> 
   <span class='material-symbols-outlined'>close</span>
+=======
+    newArticle.innerHTML = `<div class= "wrapper">
+    <div class= "flex"> 
+  <img class="pop-image" src= ${data.artworkUrl100} alt="Image"/> 
+  <span class='material-symbols-outlined white'>close</span>
+>>>>>>> 0870519f27d224ee1a64e353a2fe8f3ceec843d8
   </div>
-  <h2>Collection Name: ${data.collectionName}</h2>
+  <h2 class="white">Collection Name: ${data.collectionName}</h2>
   <div class= "pop-details">
-    <a href="${data.collectionViewUrl}" target="_blank">Click Here To Listen</a>
-    <p>Release Date: ${data.releaseDate}</p>
-    <p>Price: $${data.collectionPrice}</p>
-    <p>Genre Type: ${data.primaryGenreName}</p>
+    <a class="white border link" href="${data.collectionViewUrl}" target="_blank">Click Here To Listen</a>
+    <p class="white border">Release Date: ${data.releaseDate}</p>
+    <p class="white border">Price: $${data.collectionPrice}</p>
+    <p class="white border">Genre Type: ${data.primaryGenreName}</p>
   </div>
-  <div class="store-comments"></div>
+  <fieldset class="fieldset">
+  <legend class="count white"></legend>
+  <ul class="store-comments white"></ul>
+ </fieldset>
   <div>
-  <h4>Add a Comment</h4>
+  <h4 class= "white comment-header">Add a Comment</h4>
   <form id="form">
   <input
   type="text"
   name="name"
+  maxlength="20"
               id="input"
               placeholder="Add your Name"
             />
             <br />
-            <textarea name="" id="textarea" cols="30" rows="10" placeholder= "insights"></textarea>
+            <textarea name="" id="textarea" cols="30" rows="10" maxlength="100" placeholder= "insights"></textarea>
             <button type="submit" class="btn">Comment</button>
             </form>
             </div>
+<<<<<<< HEAD
+=======
+            </div>
+>>>>>>> 0870519f27d224ee1a64e353a2fe8f3ceec843d8
   `;
     popUp.appendChild(newArticle);
   }
@@ -40,9 +55,17 @@ export default class Comment {
 
   static closePopUp = (event) => {
     const child = event.target;
+<<<<<<< HEAD
     const parentContainer = child.parentElement.parentElement.parentElement;
     if (child.classList.contains('material-symbols-outlined')) {
       parentContainer.removeChild(child.parentElement.parentElement);
+=======
+    const parentContainer = child.parentElement.parentElement.parentElement.parentElement;
+    if (child.classList.contains('material-symbols-outlined')) {
+      parentContainer.removeChild(
+        child.parentElement.parentElement.parentElement,
+      );
+>>>>>>> 0870519f27d224ee1a64e353a2fe8f3ceec843d8
     }
   }
 
@@ -54,7 +77,11 @@ export default class Comment {
       },
       body: JSON.stringify({
         item_id: id,
+<<<<<<< HEAD
         userName,
+=======
+        username: userName,
+>>>>>>> 0870519f27d224ee1a64e353a2fe8f3ceec843d8
         comment,
       }),
     });
@@ -66,4 +93,48 @@ export default class Comment {
   }
 
   static getStorage = () => JSON.parse(localStorage.getItem('appId'))
+<<<<<<< HEAD
+=======
+
+  static clearField = () => {
+    const name = document.querySelector('#input');
+    const text = document.querySelector('#textarea');
+    name.value = '';
+    text.value = '';
+  }
+
+  static showComment = (comments) => {
+    const fieldset = document.querySelector('fieldset');
+    if (comments.length > 0) {
+      comments.forEach((comment) => {
+        const commentContainer = document.querySelector('.store-comments');
+        const container = document.createElement('li');
+        container.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        commentContainer.appendChild(container);
+      });
+    } else {
+      fieldset.style.display = 'none';
+    }
+  }
+
+  static showPer = (nameValue, textValue) => {
+    const date = new Date();
+    const newDate = `${date.getFullYear()}-0${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
+    const commentContainer = document.querySelector('.store-comments');
+    const container = document.createElement('li');
+    container.innerHTML = `${newDate} ${nameValue}: ${textValue}`;
+    commentContainer.appendChild(container);
+  }
+
+  static countComment = (comments) => {
+    const count = document.querySelector('.count');
+    if (comments.length > 0) {
+      count.innerHTML = `Comment ( ${comments.length})`;
+    } else {
+      count.innerHTML = '';
+    }
+  }
+>>>>>>> 0870519f27d224ee1a64e353a2fe8f3ceec843d8
 }

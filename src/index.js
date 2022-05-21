@@ -2,11 +2,14 @@ import './style.css';
 import displayCard from './modules/displayCard.js';
 import Comment from './modules/comment.js';
 import initId from './modules/init.js';
+import cardCounter from './modules/cardCounter.js';
+import updateAllLikes from './modules/likesData.js';
+import '../Assets/images/icons8.png';
 // Display all items
 const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section');
   const response = await fetch(
-    `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=6`,
+    `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=12`,
     {
       method: 'POST',
       headers: {
@@ -24,11 +27,17 @@ const displayItems = async (artistId = '271256') => {
       element.artistName,
       element.collectionId,
     );
+    updateAllLikes();
   }
   const btns = document.querySelectorAll('.comment');
   Array.from(btns).forEach((btn, index) => {
     const element = obj.results[index + 1];
-    btn.addEventListener('click', (event) => {
+    btn.addEventListener('click', async (event) => {
+      const appId = Comment.getStorage();
+      const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
+      const getComment = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
+        index + 1
+      }`;
       Comment.displayCommentPopUp(event, element);
       const form = document.querySelector('#form');
       form.addEventListener('submit', async (event) => {
@@ -37,25 +46,27 @@ const displayItems = async (artistId = '271256') => {
         const text = document.querySelector('#textarea');
         const nameValue = name.value;
         const textValue = text.value;
-        const appId = Comment.getStorage();
-        const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
-        const getComment = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
-          index + 1
-        }`;
         await Comment.postAComment(
           commentUrl,
           index + 1,
           nameValue,
           textValue,
         );
+        Comment.clearField();
         await Comment.getComment(getComment);
+        Comment.showPer(nameValue, textValue);
       });
+      const sand = await Comment.getComment(getComment);
+      Comment.showComment(sand);
+      Comment.countComment(sand);
     });
   });
+  cardCounter();
+  updateAllLikes();
 };
-displayItems();
 initId();
+displayItems();
 
-document.querySelector('.comment-popup').addEventListener('click', (event) => {
-  Comment.closePopUp(event);
-});
+document
+  .querySelector('.comment-popup')
+  .addEventListener('click', (event) => Comment.closePopUp(event));
