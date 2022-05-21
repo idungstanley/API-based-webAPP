@@ -1,7 +1,7 @@
 import setLike from './likeButton.js';
 
 // Display single card/item
-const displayCard = (container, albumImg = 'unknown', albumName = 'no-name', likes = 0, index) => {
+const displayCard = (container, albumImg = 'unknown', albumName = 'no-name',likes = 0, index) => {
   const likesCounter = likes;
   const div = document.createElement('div');
   const img = document.createElement('img');

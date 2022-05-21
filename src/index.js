@@ -10,6 +10,12 @@ const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section');
   const response = await fetch(
     `https://itunes.apple.com/lookup?id=${artistId}&entity=album&limit=6`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    },
   );
   const obj = await response.json();
   for (let index = 1; index < obj.results.length; index += 1) {
@@ -21,6 +27,7 @@ const displayItems = async (artistId = '271256') => {
       element.artistName,
       element.collectionId,
     );
+    updateAllLikes();
   }
 
   const btns = document.querySelectorAll('.comment');
@@ -32,5 +39,6 @@ const displayItems = async (artistId = '271256') => {
 };
 initId();
 displayItems();
-updateAllLikes();
+
+
 document.querySelector('.comment-popup').addEventListener('click', (event) => Comment.closePopUp(event));
