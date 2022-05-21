@@ -16,7 +16,7 @@
     "no-inline-styles:error"
   ],
   "ignoredUrls": [{
-    "domain": ".*dist/.*",
+    "domain": ".*docs/.*",
     "hints": ["*"]
 }, {
     "domain": "www.domain2.net",

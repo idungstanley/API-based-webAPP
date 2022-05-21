@@ -7,5 +7,5 @@ const comment = [
   { name: 'swarly', age: '54' },
 ];
 test('Comment counter', () => {
-  expect(Comment.countComment(comment).tobe(4));
+  expect(Comment.count(comment)).toBe(4);
 });

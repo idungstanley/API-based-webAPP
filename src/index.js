@@ -4,7 +4,7 @@ import Comment from './modules/comment.js';
 import initId from './modules/init.js';
 import cardCounter from './modules/cardCounter.js';
 import updateAllLikes from './modules/likesData.js';
-import '../Assets/images/icons8.png';
+
 // Display all items
 const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section');
@@ -24,7 +24,7 @@ const displayItems = async (artistId = '271256') => {
       container,
       element.artworkUrl100,
       element.collectionCensoredName,
-      element.artistName,
+      0,
       element.collectionId,
     );
   }
@@ -34,9 +34,8 @@ const displayItems = async (artistId = '271256') => {
     btn.addEventListener('click', async (event) => {
       Comment.displayCommentPopUp(event, element);
       const form = document.querySelector('#form');
-      const appId = Comment.getStorage();
-      const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
-      const getComment = await `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
+      const commentUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/VonFwyCfU4bUnxbvPNPN/comments/';
+      const getComment = await `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/VonFwyCfU4bUnxbvPNPN/comments?item_id=${
         index + 1
       }`;
       form.addEventListener('submit', async (event) => {
