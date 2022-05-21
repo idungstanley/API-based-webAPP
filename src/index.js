@@ -5,7 +5,6 @@ import initId from './modules/init.js';
 import cardCounter from './modules/cardCounter.js';
 import updateAllLikes from './modules/likesData.js';
 import '../Assets/images/icons8.png';
-
 // Display all items
 const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section');
@@ -28,11 +27,39 @@ const displayItems = async (artistId = '271256') => {
       element.artistName,
       element.collectionId,
     );
+    updateAllLikes();
   }
   const btns = document.querySelectorAll('.comment');
   Array.from(btns).forEach((btn, index) => {
     const element = obj.results[index + 1];
-    btn.addEventListener('click', (event) => Comment.displayCommentPopUp(event, element));
+    btn.addEventListener('click', async (event) => {
+      const appId = Comment.getStorage();
+      const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
+      const getComment = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
+        index + 1
+      }`;
+      Comment.displayCommentPopUp(event, element);
+      const form = document.querySelector('#form');
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const name = document.querySelector('#input');
+        const text = document.querySelector('#textarea');
+        const nameValue = name.value;
+        const textValue = text.value;
+        await Comment.postAComment(
+          commentUrl,
+          index + 1,
+          nameValue,
+          textValue,
+        );
+        Comment.clearField();
+        await Comment.getComment(getComment);
+        Comment.showPer(nameValue, textValue);
+      });
+      const sand = await Comment.getComment(getComment);
+      Comment.showComment(sand);
+      Comment.countComment(sand);
+    });
   });
   cardCounter();
   updateAllLikes();
@@ -40,4 +67,6 @@ const displayItems = async (artistId = '271256') => {
 initId();
 displayItems();
 
-document.querySelector('.comment-popup').addEventListener('click', (event) => Comment.closePopUp(event));
+document
+  .querySelector('.comment-popup')
+  .addEventListener('click', (event) => Comment.closePopUp(event));
