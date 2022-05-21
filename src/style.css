@@ -1,15 +1,15 @@
 @font-face {
-  font-family: "Hacim-medium";
+  font-family: 'Hacim-medium';
   src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Medium.ttf);
 }
 
 @font-face {
-  font-family: "Hacim-bold";
+  font-family: 'Hacim-bold';
   src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Round.ttf);
 }
 
 @font-face {
-  font-family: "Hacim-light";
+  font-family: 'Hacim-light';
   src: url(../Assets/hacim-simple-sans-serif-font/TTF/Hacim-Light.ttf);
 }
 
@@ -17,7 +17,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Hacim-medium", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Hacim-medium', 'Gill Sans', 'Gill Sans MT', Calibri,
+    'Trebuchet MS', sans-serif;
 }
 
 body {
@@ -59,7 +60,7 @@ header {
   background-color: black;
 }
 
-.material-symbols-outlined:hover{
+.material-symbols-outlined:hover {
   background-color: red;
   color: white;
   border-radius: 3px;
@@ -81,6 +82,57 @@ ul {
   list-style: none;
 }
 
+.pop-image {
+  width: 20%;
+  border-radius: 50%;
+}
+.count {
+  padding: 7px;
+}
+
+.link:hover{
+  color: #ff8a53;
+  border-color: #ff8a53;
+}
+
+.comment-header {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#input {
+  width: 50%;
+  height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #ff8a53;
+  padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #ff8a53;
+}
+#input:focus {
+  outline: none;
+  padding: 5px;
+}
+
+#textarea {
+  width: 50%;
+  height: 100px;
+  padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #ff8a53;
+}
+
+#textarea:focus {
+  outline: none;
+  padding: 5px;
+}
+
+fieldset {
+  padding: 5px;
+}
 .pop-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -91,7 +143,7 @@ ul {
   border-radius: 5px;
   margin: 5px;
   padding: 10px;
-  background-image:url(../Assets/images/pexels-sebastiaan-stam-1097456.jpg);
+  background-image: url(../Assets/images/pexels-sebastiaan-stam-1097456.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -200,12 +252,14 @@ footer {
   margin: 40px;
   color: #f8d2c1;
   font-size: 20px;
-  font-family: hacim-medium, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: hacim-medium, 'Gill Sans', 'Gill Sans MT', Calibri,
+    'Trebuchet MS', sans-serif;
 }
 
 header p {
   color: #323838;
-  font-family: Hacim-bold, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Hacim-bold, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+    sans-serif;
   font-size: 30px;
 }
 
@@ -233,7 +287,7 @@ header p {
 }
 
 .search > div::after {
-  content: "";
+  content: '';
   background: #2a2c2a;
   width: 4px;
   height: 20px;

@@ -9,15 +9,17 @@ export default class Comment {
   </div>
   <h2 class="white">Collection Name: ${data.collectionName}</h2>
   <div class= "pop-details">
-    <a class="white border" href="${data.collectionViewUrl}" target="_blank">Click Here To Listen</a>
+    <a class="white border link" href="${data.collectionViewUrl}" target="_blank">Click Here To Listen</a>
     <p class="white border">Release Date: ${data.releaseDate}</p>
     <p class="white border">Price: $${data.collectionPrice}</p>
     <p class="white border">Genre Type: ${data.primaryGenreName}</p>
   </div>
-  <h4 class="count"></h4>
-  <ul class="store-comments"></ul>
+  <fieldset class="fieldset">
+  <legend class="count white"></legend>
+  <ul class="store-comments white"></ul>
+ </fieldset>
   <div>
-  <h4 class= "white">Add a Comment</h4>
+  <h4 class= "white comment-header">Add a Comment</h4>
   <form id="form">
   <input
   type="text"
@@ -81,16 +83,25 @@ export default class Comment {
   }
 
   static showComment = (comments) => {
-    comments.forEach((comment) => {
-      const commentContainer = document.querySelector('.store-comments')
-      const container = document.createElement("li")
-      container.innerHTML =`${comment.creation_date} ${comment.username}: ${comment.comment}`
-      commentContainer.appendChild(container)
-    })
+    const fieldset = document.querySelector('fieldset')
+    if (comments.length > 0) {
+      comments.forEach((comment) => {
+        const commentContainer = document.querySelector('.store-comments')
+        const container = document.createElement('li')
+        container.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`
+        commentContainer.appendChild(container)
+      })
+    } else {
+      fieldset.style.display = 'none'
+    }
   }
 
   static countComment = (comments) => {
-    const count = document.querySelector(".count");
-    count.innerHTML = `Comment (${comments.length})`
+    const count = document.querySelector('.count')
+    if (comments.length > 0) {
+      count.innerHTML = `Comment ( ${comments.length})`
+    } else {
+      count.innerHTML = ''
+    }
   }
 }
