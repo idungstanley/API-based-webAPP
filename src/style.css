@@ -17,8 +17,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Hacim-medium', 'Gill Sans', 'Gill Sans MT', Calibri,
-    'Trebuchet MS', sans-serif;
+  font-family:
+    'Hacim-medium',
+    'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
 }
 
 body {
@@ -55,7 +60,7 @@ header {
 .material-symbols-outlined {
   width: max-content;
   padding: 4px;
-  height: fit-content;
+  height: max-content;
   border: 1px solid white;
   background-color: black;
 }
@@ -86,11 +91,12 @@ ul {
   width: 20%;
   border-radius: 50%;
 }
+
 .count {
   padding: 7px;
 }
 
-.link:hover{
+.link:hover {
   color: #ff8a53;
   border-color: #ff8a53;
   background-color: white;
@@ -100,17 +106,18 @@ ul {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 #input {
   width: 50%;
   height: 30px;
   margin-bottom: 5px;
-  border-bottom: 2px solid #ff8a53;
   padding: 5px;
   border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: 3px solid #ff8a53;
 }
+
 #input:focus {
   outline: none;
   padding: 5px;
@@ -134,6 +141,7 @@ ul {
 fieldset {
   padding: 5px;
 }
+
 .pop-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -148,6 +156,7 @@ fieldset {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 article {
   position: fixed;
   z-index: 1000;
@@ -253,13 +262,23 @@ footer {
   margin: 40px;
   color: #f8d2c1;
   font-size: 20px;
-  font-family: hacim-medium, 'Gill Sans', 'Gill Sans MT', Calibri,
-    'Trebuchet MS', sans-serif;
+  font-family:
+    hacim-medium,
+    'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
+    sans-serif;
 }
 
 header p {
   color: #323838;
-  font-family: Hacim-bold, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+  font-family:
+    Hacim-bold,
+    'Gill Sans',
+    'Gill Sans MT',
+    Calibri,
+    'Trebuchet MS',
     sans-serif;
   font-size: 30px;
 }
