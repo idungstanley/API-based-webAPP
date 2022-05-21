@@ -33,13 +33,13 @@ const displayItems = async (artistId = '271256') => {
   Array.from(btns).forEach((btn, index) => {
     const element = obj.results[index + 1];
     btn.addEventListener('click', async (event) => {
-      const appId = Comment.getStorage();
-      const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
-      const getComment = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
-        index + 1
-      }`;
       Comment.displayCommentPopUp(event, element);
       const form = document.querySelector('#form');
+      const appId = Comment.getStorage();
+      const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`;
+      const getComment = await `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
+        index + 1
+      }`;
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const name = document.querySelector('#input');
