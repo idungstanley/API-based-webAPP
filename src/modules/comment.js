@@ -107,10 +107,14 @@ export default class Comment {
     commentContainer.appendChild(container);
   }
 
-  static countComment = (comments) => {
+  static count = (data) => {
+    return data.length;
+  }
+
+  static showCount = (comments) => {
     const count = document.querySelector('.count');
     if (comments.length > 0) {
-      count.innerHTML = `Comment ( ${comments.length})`;
+      count.innerHTML = `Comment ( ${Comment.count(comments)})`;
     } else {
       count.innerHTML = '';
     }
