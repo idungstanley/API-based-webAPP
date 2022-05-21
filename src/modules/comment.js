@@ -1,7 +1,7 @@
-const popUp = document.querySelector('.comment-popup')
+const popUp = document.querySelector('.comment-popup');
 export default class Comment {
   static createCommentPopUp = (data) => {
-    const newArticle = document.createElement('article')
+    const newArticle = document.createElement('article');
     newArticle.innerHTML = `<div class= "wrapper">
     <div class= "flex"> 
   <img class="pop-image" src= ${data.artworkUrl100} alt="Image"/> 
@@ -34,26 +34,26 @@ export default class Comment {
             </form>
             </div>
             </div>
-  `
-    popUp.appendChild(newArticle)
+  `;
+    popUp.appendChild(newArticle);
   }
 
   static displayCommentPopUp = (event, element) => {
     if (event.target.id === element.collectionId.toString()) {
-      Comment.createCommentPopUp(element)
+      Comment.createCommentPopUp(element);
     }
   }
 
   static closePopUp = (event) => {
-    const child = event.target
-    const parentContainer =
-      child.parentElement.parentElement.parentElement.parentElement
+    const child = event.target;
+    const parentContainer = child.parentElement.parentElement.parentElement.parentElement;
     if (child.classList.contains('material-symbols-outlined')) {
       parentContainer.removeChild(
-        child.parentElement.parentElement.parentElement
-      )
+        child.parentElement.parentElement.parentElement,
+      );
     }
   }
+
   static postAComment = async (url, id, userName, comment) => {
     await fetch(url, {
       method: 'POST',
@@ -63,45 +63,45 @@ export default class Comment {
       body: JSON.stringify({
         item_id: id,
         username: userName,
-        comment: comment,
+        comment,
       }),
-    })
+    });
   }
 
   static getComment = async (url) => {
-    let fetchData = await fetch(url)
-    return fetchData.json()
+    const fetchData = await fetch(url);
+    return fetchData.json();
   }
-  static getStorage = () => {
-    return JSON.parse(localStorage.getItem('appId'))
-  }
+
+  static getStorage = () => JSON.parse(localStorage.getItem('appId'))
+
   static clearField = () => {
-    let name = document.querySelector('#input')
-    let text = document.querySelector('#textarea')
-    name.value = ''
-    text.value = ''
+    const name = document.querySelector('#input');
+    const text = document.querySelector('#textarea');
+    name.value = '';
+    text.value = '';
   }
 
   static showComment = (comments) => {
-    const fieldset = document.querySelector('fieldset')
+    const fieldset = document.querySelector('fieldset');
     if (comments.length > 0) {
       comments.forEach((comment) => {
-        const commentContainer = document.querySelector('.store-comments')
-        const container = document.createElement('li')
-        container.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`
-        commentContainer.appendChild(container)
-      })
+        const commentContainer = document.querySelector('.store-comments');
+        const container = document.createElement('li');
+        container.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        commentContainer.appendChild(container);
+      });
     } else {
-      fieldset.style.display = 'none'
+      fieldset.style.display = 'none';
     }
   }
 
   static countComment = (comments) => {
-    const count = document.querySelector('.count')
+    const count = document.querySelector('.count');
     if (comments.length > 0) {
-      count.innerHTML = `Comment ( ${comments.length})`
+      count.innerHTML = `Comment ( ${comments.length})`;
     } else {
-      count.innerHTML = ''
+      count.innerHTML = '';
     }
   }
 }
