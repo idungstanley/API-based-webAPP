@@ -33,7 +33,6 @@ const displayItems = async (artistId = '271256') => {
   Array.from(btns).forEach((btn, index) => {
     const element = obj.results[index + 1];
     btn.addEventListener('click', async (event) => {
-<<<<<<< HEAD
       Comment.displayCommentPopUp(event, element);
       const form = document.querySelector('#form');
       const appId = Comment.getStorage();
@@ -55,19 +54,11 @@ const displayItems = async (artistId = '271256') => {
         );
         Comment.clearField();
         await Comment.getComment(getComment);
-<<<<<<< HEAD
-      });
-
-      const sand = await Comment.getComment(getComment);
-      await Comment.countComment(sand);
-      await Comment.showComment(sand);
-=======
         Comment.showPer(nameValue, textValue);
       });
       const sand = await Comment.getComment(getComment);
       Comment.showComment(sand);
       Comment.countComment(sand);
->>>>>>> 0870519f27d224ee1a64e353a2fe8f3ceec843d8
     });
   });
   cardCounter();
