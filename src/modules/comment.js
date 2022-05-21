@@ -96,6 +96,17 @@ export default class Comment {
     }
   }
 
+  static showPer = (nameValue, textValue) => {
+    const date = new Date()
+    const newDate = `${date.getFullYear()}-0${
+      date.getMonth() + 1
+    }-${date.getDate()}`
+    const commentContainer = document.querySelector('.store-comments');
+    const container = document.createElement('li')
+    container.innerHTML = `${newDate} ${nameValue}: ${textValue}`
+    commentContainer.appendChild(container)
+  }
+
   static countComment = (comments) => {
     const count = document.querySelector('.count')
     if (comments.length > 0) {

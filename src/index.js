@@ -5,7 +5,6 @@ import initId from './modules/init.js'
 import cardCounter from './modules/cardCounter.js'
 import updateAllLikes from './modules/likesData.js'
 import '../Assets/images/icons8.png'
-
 // Display all items
 const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section')
@@ -34,11 +33,15 @@ const displayItems = async (artistId = '271256') => {
   Array.from(btns).forEach((btn, index) => {
     const element = obj.results[index + 1]
     btn.addEventListener('click', async (event) => {
-      Comment.displayCommentPopUp(event, element)
-      const form = document.querySelector('#form')
       let appId = Comment.getStorage()
       const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments/`
-      await form.addEventListener('submit', async (event) => {
+       const getComment = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
+         index + 1
+       }`
+       var san;
+      Comment.displayCommentPopUp(event, element)
+      const form = document.querySelector('#form')
+       form.addEventListener('submit', async (event) => {
         event.preventDefault()
         let name = document.querySelector('#input')
         let text = document.querySelector('#textarea')
@@ -51,16 +54,12 @@ const displayItems = async (artistId = '271256') => {
           textValue
         )
         Comment.clearField()
-        let san = await Comment.getComment(getComment)
+        san = await Comment.getComment(getComment);
+        Comment.showPer(nameValue, textValue)
       })
-      
-      const getComment = await `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments?item_id=${
-        index + 1
-      }`
-      let sand = await Comment.getComment(getComment)
-      console.log(sand)
-      await Comment.countComment(sand)
-      await Comment.showComment(sand)
+      let sand = san == !undefined ? san : await Comment.getComment(getComment) 
+      Comment.showComment(sand)
+      Comment.countComment(sand)
     })
   })
   cardCounter()
