@@ -19,7 +19,7 @@ const displayCard = (container, albumImg = 'unknown', albumName = 'no-name', lik
   likeIcon.setAttribute('data-itemId', itemId);
   descriptionText.setAttribute('data-cardid', itemId);
   descriptionText.textContent = `${likeIcon.dataset.likes} likes`;
-  likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/126/126473.png');
+  likeIcon.setAttribute('src', 'https://cdn-icons.flaticon.com/png/512/2961/premium/2961957.png?token=exp=1653087473~hmac=8cb989b05fb49249a473ef37b1074070');
   likeIcon.classList.add('icon-size');
   likesContainer.classList.add('description-container');
   h3.innerHTML = albumName;
