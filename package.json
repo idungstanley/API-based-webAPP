@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "watch": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --watchAll",
     "webhint": "npx hint .",
     "stylelint": "npx stylelint **/*.{css,scss} --fix",
@@ -14,12 +14,10 @@
     "deploy": "gh-pages -d dist"
   },
   "jest": {
-    "moduleNameMapper": {
-      "^.+\\.svg$": "jest-svg-transformer"
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"      
     },
-    "rootDir": "./tests",
-    "testEnvironment": "jsdom",
-    "verbose": true
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -33,7 +31,11 @@
   },
   "homepage": "https://github.com/idungstanley/API-based-webAPP#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -41,6 +43,7 @@
     "hint": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",

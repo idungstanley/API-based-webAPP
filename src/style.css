@@ -99,6 +99,7 @@ ul {
 .link:hover {
   color: #ff8a53;
   border-color: #ff8a53;
+  background-color: white;
 }
 
 .comment-header {
