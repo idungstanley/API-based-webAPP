@@ -12,6 +12,7 @@ import handleSearchInput from './modules/handleSearchInput.js';
 const displayItems = async (artistName) => {
   const artistId = await searchArtistId(artistName);
   const container = document.getElementById('section');
+  container.innerHTML = '';
   const obj = await searchArtistAlbums(artistId, 12);
   for (let index = 1; index < obj.results.length; index += 1) {
     const element = obj.results[index];
