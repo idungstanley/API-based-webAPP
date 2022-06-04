@@ -4,7 +4,7 @@ import Comment from './modules/comment.js';
 import initId from './modules/init.js';
 import cardCounter from './modules/cardCounter.js';
 import updateAllLikes from './modules/likesData.js';
-
+import searchArtistId from './modules/searchArtist.js';
 // Display all items
 const displayItems = async (artistId = '271256') => {
   const container = document.getElementById('section');
