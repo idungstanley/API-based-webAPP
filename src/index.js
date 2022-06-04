@@ -6,9 +6,11 @@ import cardCounter from './modules/cardCounter.js';
 import updateAllLikes from './modules/likesData.js';
 import searchArtistId from './modules/searchArtistId.js';
 import searchArtistAlbums from './modules/searchArtistAlbums.js';
+import handleSearchInput from './modules/handleSearchInput.js';
 
 // Display all items
-const displayItems = async (artistId = '271256') => {
+const displayItems = async (artistName) => {
+  const artistId = await searchArtistId(artistName);
   const container = document.getElementById('section');
   const obj = await searchArtistAlbums(artistId, 12);
   for (let index = 1; index < obj.results.length; index += 1) {
@@ -56,8 +58,10 @@ const displayItems = async (artistId = '271256') => {
   updateAllLikes();
 };
 initId();
-displayItems();
+document.getElementById('artistInput').addEventListener('keypress', handleSearchInput);
 
 document
   .querySelector('.comment-popup')
   .addEventListener('click', (event) => Comment.closePopUp(event));
+
+export default displayItems;
