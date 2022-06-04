@@ -8,7 +8,7 @@ const searchArtistAlbums = async (artistId, numberOfAlbums) => {
       },
     },
   );
-  return await response.json();
+  return response.json();
 };
 
 export default searchArtistAlbums;

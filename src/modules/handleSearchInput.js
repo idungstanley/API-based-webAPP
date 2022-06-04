@@ -1,4 +1,4 @@
-import displayItems from "../index.js";
+import displayItems from './displayItems.js';
 
 const updaterArtistTitle = (artistName) => {
   const artistTitle = document.body.querySelector('.dra');
@@ -6,10 +6,12 @@ const updaterArtistTitle = (artistName) => {
 };
 
 const handleSearchInput = (event) => {
-  if(event.key === "Enter") {
+  if (event.key === 'Enter') {
     displayItems(event.target.value);
     updaterArtistTitle(event.target.value);
   }
 };
+
+document.getElementById('artistInput').addEventListener('keypress', handleSearchInput);
 
 export default handleSearchInput;
